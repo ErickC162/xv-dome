@@ -79,11 +79,7 @@ const InvitationPage = () => {
           
           <div className="photo-frame">
             <div className="photo-inner">
-              <img 
-                src="/letra_D.png"
-                alt="Quinceañera" 
-                className="photo-real"
-              />
+              <img src={foto} alt="" className="flower-decor flower-bottom-left" style={{ transform: 'scaleX(-1)' }} />
             </div>
           </div>
         </section>
