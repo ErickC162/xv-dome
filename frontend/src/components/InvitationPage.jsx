@@ -8,16 +8,22 @@ import flor from '/flor_azul.png';
 const InvitationPage = () => {
   const linkWhatsApp = "https://wa.me/593999999999?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV.";
   const linkUbicacion = "https://maps.app.goo.gl/tu-enlace-aqui";
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
-
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const handleStart = () => {
-    audioRef.current.play();
-    setIsPlaying(true);
-    setHasInteracted(true);
+    const audio = new Audio('/thinking_out_loud.mp3'); 
+    audio.loop = true;
+    audio.volume = 0.5;
+
+    audio.play()
+      .then(() => {
+        setIsPlaying(true);
+        setHasInteracted(true);
+      })
+      .catch((err) => {
+        console.error("Error al reproducir:", err);
+        setHasInteracted(true);
+      });
   };
 
   if (!hasInteracted) {
@@ -30,7 +36,7 @@ const InvitationPage = () => {
       </div>
     );
   }
-  
+
   useEffect(() => {
     if (!audioRef.current) {
       audioRef.current = new Audio(cancion);
