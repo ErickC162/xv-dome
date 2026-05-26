@@ -76,12 +76,7 @@ const InvitationPage = () => {
           <p className="pre-title">Te invito a</p>
           <h1 className="main-title">MY XV</h1>
           <h2 className="sub-title">Birthday</h2>
-          
-          <div className="photo-frame">
-            <div className="photo-inner">
-              <img src={foto} alt="" className="flower-decor flower-bottom-left" style={{ transform: 'scaleX(-1)' }} />
-            </div>
-          </div>
+          <img src={foto} alt="Protagonista" className="photo-floating" />
         </section>
 
         {/* ================= SECCIÓN 2: ACCIONES (Botones) ================= */}
