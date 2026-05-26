@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, MapPin, Play, Pause, Music } from 'lucide-react';
 import './InvitationPage.css';
+import cancion from '/thinking_out_loud.mp3';
+import foto from '/letra_D.png';
+import flor from '/flor_azul.png';
 
 const InvitationPage = () => {
   const linkWhatsApp = "https://wa.me/593999999999?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV.";
@@ -9,10 +12,18 @@ const InvitationPage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  if (!audioRef.current) {
-    audioRef.current = new Audio('/thinking_out_loud.mp3');
-    audioRef.current.loop = true;
-  }
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(cancion);
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.5;
+    }
+    
+    // Intento de autoplay
+    audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    
+    return () => audioRef.current.pause();
+  }, []);
 
   useEffect(() => {
     audioRef.current.volume = 0.3;
@@ -51,23 +62,9 @@ const InvitationPage = () => {
         <div className="stars-layer stars-layer-3"></div>
       </div>
 
-      {/* =========================================
-         ELEMENTOS DECORATIVOS FLOTANTES (FLORES)
-         ========================================= */}
-      {/* Asegúrate de tener flor-azul.png (PNG sin fondo) en public/ */}
-      <img 
-        src="/flor_azul.png" 
-        alt="" 
-        className="flower-decor flower-top-right" 
-      />
-      <img 
-        src="/flor_azul.png" 
-        alt="" 
-        className="flower-decor flower-bottom-left" 
-        style={{ transform: 'scaleX(-1)' }} /* Reflejo horizontal */
-      />
+      <img src={flor} alt="" className="flower-decor flower-top-right" />
+      <img src={flor} alt="" className="flower-decor flower-bottom-left" style={{ transform: 'scaleX(-1)' }} />
 
-      {/* Botón de Música Interactivo */}
       <button className={`music-btn ${isPlaying ? 'playing' : ''}`} onClick={toggleMusic}>
         {isPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>
