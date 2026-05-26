@@ -16,7 +16,7 @@ const InvitationPage = () => {
 
   const handleStart = () => {
     // Inicializamos el audio localmente al momento del clic
-    const audio = new Audio('/thinking_out_loud.mp3');
+    const audio = new Audio(cancion);
     audio.loop = true;
     audio.volume = 0.5;
     
