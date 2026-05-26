@@ -547,3 +547,45 @@ body {
   .timeline-dot { left: -39px; }
   .flower-decor { width: 180px; }
 }
+
+/* Pantalla de Bienvenida */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.welcome-content {
+  text-align: center;
+  animation: fade-in-up 1s ease-out;
+}
+
+.welcome-text {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.enter-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 30px;
+  color: white;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.enter-button:hover {
+  background: white;
+  color: #020617;
+}

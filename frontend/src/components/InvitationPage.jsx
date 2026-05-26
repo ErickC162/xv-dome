@@ -12,6 +12,25 @@ const InvitationPage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleStart = () => {
+    audioRef.current.play();
+    setIsPlaying(true);
+    setHasInteracted(true);
+  };
+
+  if (!hasInteracted) {
+    return (
+      <div className="welcome-overlay" onClick={handleStart}>
+        <div className="welcome-content">
+          <p className="welcome-text">Bienvenido a mis XV</p>
+          <button className="enter-button">Toca para continuar</button>
+        </div>
+      </div>
+    );
+  }
+  
   useEffect(() => {
     if (!audioRef.current) {
       audioRef.current = new Audio(cancion);
