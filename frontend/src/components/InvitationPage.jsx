@@ -6,74 +6,54 @@ import foto from '/letra_D.png';
 import flor from '/flor_azul.png';
 
 const InvitationPage = () => {
-  const linkWhatsApp = "https://wa.me/593999999999?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV.";
-  const linkUbicacion = "https://maps.app.goo.gl/tu-enlace-aqui";
+  const linkWhatsApp = "https://wa.me/593986875274?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Dome.";
+  const linkUbicacion = "https://maps.app.goo.gl/ymLuotCYdkqbeXVW8";
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  
+  // Usamos una referencia para mantener el objeto Audio vivo después del inicio
+  const audioRef = useRef(null);
 
   const handleStart = () => {
-    const audio = new Audio('/thinking_out_loud.mp3'); 
+    // Inicializamos el audio localmente al momento del clic
+    const audio = new Audio('/thinking_out_loud.mp3');
     audio.loop = true;
     audio.volume = 0.5;
-
+    
     audio.play()
       .then(() => {
+        audioRef.current = audio;
         setIsPlaying(true);
         setHasInteracted(true);
       })
       .catch((err) => {
-        console.error("Error al reproducir:", err);
+        console.error("Error al iniciar:", err);
         setHasInteracted(true);
       });
   };
 
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Pantalla de bienvenida
   if (!hasInteracted) {
     return (
       <div className="welcome-overlay" onClick={handleStart}>
         <div className="welcome-content">
-          <p className="welcome-text">Bienvenido a mis XV</p>
-          <button className="enter-button">Toca para continuar</button>
+          <p className="welcome-text">BIENVENIDO A MIS XV</p>
+          <button className="enter-button">TOCA PARA CONTINUAR</button>
         </div>
       </div>
     );
   }
-
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(cancion);
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.5;
-    }
-    
-    // Intento de autoplay
-    audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
-    
-    return () => audioRef.current.pause();
-  }, []);
-
-  useEffect(() => {
-    audioRef.current.volume = 0.3;
-    const playPromise = audioRef.current.play();
-
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => setIsPlaying(true))
-        .catch(() => {
-          console.log("Autoplay bloqueado. Esperando interacción.");
-          setIsPlaying(false);
-        });
-    }
-
-    return () => audioRef.current.pause();
-  }, []);
-
-  const toggleMusic = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   return (
     <div className="invitation-container">
