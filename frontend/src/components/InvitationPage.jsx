@@ -110,37 +110,19 @@ const InvitationPage = () => {
           </div>
         </section>
 
-        {/* ================= SECCIÓN 3: ITINERARIO (Timeline) ================= */}
-        <section className="timeline-section fade-in-up delay-2">
-          <div className="timeline-header">
-            <span className="timeline-cursive">Itinerario</span>
-            <h3 className="section-title timeline-sparkle">Cronograma de la noche</h3>
-            <div className="divider" style={{margin: '15px auto 0 auto'}}></div>
-          </div>
-
-          <div className="timeline-container">
-            
-            <div className="timeline-event">
-              <div className="timeline-dot"></div>
-              <span className="event-time">6:00 PM</span>
-              <h4 className="event-title">RECEPCIÓN</h4>
-              <p className="event-desc">Bienvenida con cóctel</p>
+        {/* --- NUEVA SECCIÓN DE INVITACIÓN --- */}
+        <section className="invitation-text-section fade-in-up delay-2">
+          <div className="text-card">
+            <p className="main-message">
+              Con inmensa alegría, tengo el honor de invitarte a celebrar conmigo una noche inolvidable: mis XV años.
+            </p>
+            <p className="sub-message">
+              Tu presencia hará aún más especial este momento tan importante en mi vida.
+            </p>
+            <div className="church-info">
+              <span className="church-time">Te esperamos en la iglesia</span>
+              <span className="church-detail">10 minutos antes de las 6:00 p.m.</span>
             </div>
-
-            <div className="timeline-event">
-              <div className="timeline-dot"></div>
-              <span className="event-time">7:00 PM</span>
-              <h4 className="event-title">CEREMONIA</h4>
-              <p className="event-desc">Misa de acción de gracias</p>
-            </div>
-
-            <div className="timeline-event">
-              <div className="timeline-dot"></div>
-              <span className="event-time">8:30 PM</span>
-              <h4 className="event-title">VALS</h4>
-              <p className="event-desc">Baile principal</p>
-            </div>
-
           </div>
         </section>
 
