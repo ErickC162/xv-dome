@@ -110,7 +110,6 @@ const InvitationPage = () => {
           </div>
         </section>
 
-        {/* --- NUEVA SECCIÓN DE INVITACIÓN --- */}
         <section className="invitation-text-section fade-in-up delay-2">
           <div className="text-card">
             <p className="main-message">

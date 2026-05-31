@@ -589,3 +589,65 @@ body {
   background: white;
   color: #020617;
 }
+
+/* Contenedor principal de la sección */
+.invitation-text-section {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto 100px auto;
+  position: relative;
+}
+
+/* Tarjeta con efecto de cristal (Glassmorphism) */
+.text-card {
+  text-align: center;
+  background: rgba(15, 23, 42, 0.6); /* Azul profundo con transparencia */
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px); /* El desenfoque del fondo */
+  border: 1px solid rgba(148, 163, 184, 0.2); /* Borde sutil */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Texto principal: elegante y legible */
+.main-message {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+  margin-bottom: 25px;
+  letter-spacing: 0.05em;
+}
+
+/* Texto emocional: cursiva suave */
+.sub-message {
+  font-family: var(--font-cursive);
+  font-size: 1.7rem;
+  color: #a5b4fc; /* Un toque de color lavanda para contrastar */
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+/* Sección de información (Iglesia) */
+.church-info {
+  border-top: 1px solid rgba(165, 180, 252, 0.3);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.church-time {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.church-detail {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+}
