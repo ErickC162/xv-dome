@@ -113,14 +113,14 @@ const InvitationPage = () => {
         <section className="invitation-text-section fade-in-up delay-2">
           <div className="text-card">
             <p className="main-message">
-              Con inmensa alegría, tengo el honor de invitarte a celebrar conmigo una noche inolvidable: mis XV años.
+              Con inmensa alegría, tengo el honor de invitarte a celebrar conmigo una fecha inolvidable: mis XV años.
             </p>
             <p className="sub-message">
               Tu presencia hará aún más especial este momento tan importante en mi vida.
             </p>
             <div className="church-info">
               <span className="church-time">Te esperamos en la iglesia</span>
-              <span className="church-detail">10 minutos antes de las 6:00 p.m.</span>
+              <span className="church-detail">10 minutos antes de las 18:00</span>
             </div>
           </div>
         </section>
